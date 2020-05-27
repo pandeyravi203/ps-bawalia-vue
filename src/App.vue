@@ -1,32 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+   <v-app> 
+     <div class="header-section">
+      <Header></Header>
     </div>
-    <router-view />
+    <div class="navigation-menu-section">
+      <NavigationMenu></NavigationMenu>
+    </div>
+    <div class="main-body-content">
+       <InnerHeader></InnerHeader>
+       <router-view />
+    </div> 
+   </v-app>          
   </div>
 </template>
-
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import InnerHeader from './views/InnerHeader'
+import NavigationMenu from './views/NavigationMenu'
+import Header from './views/Header'
+export default {
+  components:{
+    NavigationMenu,
+    Header,
+    InnerHeader
   }
 }
+</script>
+<style lang="less">
+.navigation-menu-section{
+  display: inline;
+  min-width: 200px;
+}
+.main-body-content{
+  min-width: 1350px;
+  position: absolute;
+  top:49px;
+  left:250px
+}
+.header-section{
+
+}
+
 </style>
